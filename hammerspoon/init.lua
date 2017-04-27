@@ -63,4 +63,4 @@ function reloadConfig(files)
     end
 end
 local myWatcher = hs.pathwatcher.new(os.getenv('HOME') .. '/.hammerspoon/', reloadConfig):start()
-hs.alert.show('Config loaded')
+hs.alert.show('Hammerspoon config reloaded')
