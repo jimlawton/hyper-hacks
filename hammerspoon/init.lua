@@ -50,6 +50,13 @@ end
 -- end
 -- k:bind({}, 'a', nil, afun)
 
+-- HYPER+T: Invoke iTerm2 visor.
+tfun = function()
+  hs.eventtap.keyStroke({'fn', 'cmd'}, 'f12')
+  k.triggered = true
+end
+k:bind({}, 't', nil, tfun)
+
 -- Enter Hyper Mode when F18 (Hyper/Capslock) is pressed
 pressedF18 = function()
   k.triggered = false
