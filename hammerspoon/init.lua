@@ -2,6 +2,23 @@
 -- A global variable for the Hyper Mode
 k = hs.hotkey.modal.new({}, "F17")
 
+launch = function(appname)
+  hs.application.launchOrFocus(appname)
+  k.triggered = true
+end
+
+-- Single keybinding for app launch
+singleapps = {
+  {'o', 'Microsoft Outlook'},
+  {'f', 'Finder'},
+  {'e', 'Sublime Text'},
+  {'c', 'Google Chrome'}
+}
+
+for i, app in ipairs(singleapps) do
+  k:bind({}, app[1], function() launch(app[2]); k:exit(); end)
+end
+
 -- HYPER+G: Open www.google.com in the default browser
 lfun = function()
   news = "app = Application.currentApplication(); app.includeStandardAdditions = true; app.doShellScript('open http://www.google.com')"
