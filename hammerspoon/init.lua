@@ -2,13 +2,13 @@
 -- A global variable for the Hyper Mode
 k = hs.hotkey.modal.new({}, "F17")
 
--- HYPER+L: Open news.google.com in the default browser
+-- HYPER+G: Open www.google.com in the default browser
 lfun = function()
-  news = "app = Application.currentApplication(); app.includeStandardAdditions = true; app.doShellScript('open http://news.google.com')"
+  news = "app = Application.currentApplication(); app.includeStandardAdditions = true; app.doShellScript('open http://www.google.com')"
   hs.osascript.javascript(news)
   k.triggered = true
 end
-k:bind('', 'l', nil, lfun)
+k:bind('', 'g', nil, lfun)
 
 -- HYPER+M: Call a pre-defined trigger in Alfred 3
 mfun = function()
