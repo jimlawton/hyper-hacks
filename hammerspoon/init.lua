@@ -12,6 +12,7 @@ singleapps = {
   {'o', 'Microsoft Outlook'},
   {'f', 'Finder'},
   {'e', 'Sublime Text'},
+  {'s', 'Slack'},
   {'c', 'Google Chrome'}
 }
 
