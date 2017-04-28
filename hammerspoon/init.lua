@@ -59,8 +59,8 @@ k:bind({}, 't', nil, tfun)
 
 -- HYPER-L: Lock screen
 lfun = function()
-  -- hs.caffeinate.lockScreen()
-  hs.caffeinate.startScreensaver()
+  ascript = 'tell application "System Events" to tell process "SystemUIServer" to click (first menu item of menu 1 of ((click (first menu bar item whose description is "Keychain menu extra")) of menu bar 1) whose title is "Lock Screen")'
+  hs.osascript.applescript(ascript)
 end
 k:bind({}, 'l', nil, lfun)
 
