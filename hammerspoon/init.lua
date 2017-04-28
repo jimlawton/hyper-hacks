@@ -59,7 +59,8 @@ k:bind({}, 't', nil, tfun)
 
 -- HYPER-L: Lock screen
 lfun = function()
-  hs.caffeinate.lockScreen()
+  -- hs.caffeinate.lockScreen()
+  hs.caffeinate.startScreensaver()
 end
 k:bind({}, 'l', nil, lfun)
 
