@@ -57,6 +57,12 @@ tfun = function()
 end
 k:bind({}, 't', nil, tfun)
 
+-- HYPER-L: Lock screen
+lfun = function()
+  hs.caffeinate.lockScreen()
+end
+k:bind({}, 'l', nil, lfun)
+
 -- Enter Hyper Mode when F18 (Hyper/Capslock) is pressed
 pressedF18 = function()
   k.triggered = false
