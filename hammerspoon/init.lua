@@ -50,6 +50,14 @@ end
 -- end
 -- k:bind({}, 'a', nil, afun)
 
+-- HYPER+H: Hide all windows.
+hfun = function()
+  hs.eventtap.keyStroke({'option', 'cmd'}, 'h')
+  hs.eventtap.keyStroke({'option', 'cmd'}, 'm')
+  k.triggered = true
+end
+k:bind({}, 'h', nil, hfun)
+
 -- HYPER+T: Invoke iTerm2 visor.
 tfun = function()
   hs.eventtap.keyStroke({'fn', 'cmd'}, 'f12')
