@@ -1,28 +1,23 @@
+Hat tip: This started out as a fork of [https://github.com/lodestone/hyper-hacks]. Thanks @lodestone!
+
 = hyper-hacks
 
-Here are my macOS Sierra hacks using some combination of Alfred 3, Karabiner-Elements, and Hammerspoon
+Here are my macOS Sierra hacks using some combination of Karabiner-Elements and Hammerspoon
 
 == Background:
 
-When macOS Sierra hit, everyone using a http://brettterpstra.com/2012/12/08/a-useful-caps-lock-key/[Hyper key hack] based off of Karabiner and Seil felt a deep loss.
-
-This hack with link:https://github.com/tekezo/Karabiner-Elements[Karabiner-Elements] and link:http://www.hammerspoon.org[Hammerspoon] brings back that old-time hyper key feel, complete with ESCAPE binding.
+http://brettterpstra.com/2012/12/08/a-useful-caps-lock-key/[Hyper key hack]
 
 == Installation:
 
-* Install Hammerspoon
-* Install Karabiner-Elements
+* Install link:http://www.hammerspoon.org[Hammerspoon]
+* Install link:https://github.com/tekezo/Karabiner-Elements[Karabiner-Elements]
 * Put `hammerspoon/init.lua` in `~/.hammerspoon/init.lua`
 * Put `karabinier/karabiner.json` in `~/.config/karabinier/karabiner.json`
 
 That's pretty much it.
 
-This is my first attempt and has a few examples in the `init.lua`. I aim to learn some more Lua and clean up the repetitious code.
+s is still fairly simplistic, but it works for me right now.
 
-In the meantime, check out the link:https://github.com/lodestone/hyper-hacks/wiki[Wiki] for ideas on how to configure your `init.lua`.
+Check out the link:https://github.com/lodestone/hyper-hacks/wiki[Wiki] for ideas on how to configure your `init.lua`.
 
-Reach out to me:
-
-Github:: @lodestone
-Twitter:: @lodestone
-Email:: lodestone@gmail.com
