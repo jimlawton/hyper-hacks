@@ -20,36 +20,6 @@ for i, app in ipairs(singleapps) do
   k:bind({}, app[1], function() launch(app[2]); k:exit(); end)
 end
 
--- HYPER+G: Open www.google.com in the default browser
--- lfun = function()
---   news = "app = Application.currentApplication(); app.includeStandardAdditions = true; app.doShellScript('open http://www.google.com')"
---   hs.osascript.javascript(news)
---   k.triggered = true
--- end
--- k:bind('', 'g', nil, lfun)
-
--- HYPER+M: Call a pre-defined trigger in Alfred 3
--- mfun = function()
---   cmd = "tell application \"Alfred 3\" to run trigger \"emoj\" in workflow \"com.sindresorhus.emoj\" with argument \"\""
---   hs.osascript.applescript(cmd)
---   k.triggered = true
--- end
--- k:bind({}, 'm', nil, mfun)
-
--- HYPER+E: Act like ⌃e and move to end of line.
--- efun = function()
---   hs.eventtap.keyStroke({'⌃'}, 'e')
---   k.triggered = true
--- end
--- k:bind({}, 'e', nil, efun)
-
--- HYPER+A: Act like ⌃a and move to beginning of line.
--- afun = function()
---   hs.eventtap.keyStroke({'⌃'}, 'a')
---   k.triggered = true
--- end
--- k:bind({}, 'a', nil, afun)
-
 -- HYPER+H: Hide all windows.
 hfun = function()
   hs.eventtap.keyStroke({'option', 'cmd'}, 'h')
@@ -65,7 +35,7 @@ tfun = function()
 end
 k:bind({}, 't', nil, tfun)
 
--- HYPER-L: Lock screen
+-- HYPER+L: Lock screen
 lfun = function()
   -- This assumes that Keychain Access is in the menubar.
   ascript = 'tell application "System Events" to tell process "SystemUIServer" to click (first menu item of menu 1 of ((click (first menu bar item whose description is "Keychain menu extra")) of menu bar 1) whose title is "Lock Screen")'
