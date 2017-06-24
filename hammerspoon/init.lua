@@ -20,6 +20,13 @@ for i, app in ipairs(singleapps) do
   k:bind({}, app[1], function() launch(app[2]); k:exit(); end)
 end
 
+-- HYPER+TAB: OPTION+TAB
+-- tabfun = function()
+--   hs.eventtap.keyStroke({'option'}, 'tab')
+--   k.triggered = true
+-- end
+-- k:bind({}, 'tab', nil, tabfun)
+
 -- HYPER+H: Hide all windows.
 hfun = function()
   hs.eventtap.keyStroke({'option', 'cmd'}, 'h')
