@@ -50,7 +50,7 @@ end
 k:bind({}, 't', nil, tfun)
 
 -- HYPER+L: Lock screen
--- (This is now replaced by CMD-Q on High Sierra)
+-- (This is now replaced by CMD-Ctrl-Q on High Sierra)
 -- lfun = function()
   -- This assumes that Keychain Access is in the menubar.
   -- ascript = 'tell application "System Events" to tell process "SystemUIServer" to click (first menu item of menu 1 of ((click (first menu bar item whose description is "Keychain menu extra")) of menu bar 1) whose title is "Lock Screen")'
