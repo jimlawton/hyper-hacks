@@ -13,7 +13,7 @@ Check out the link:https://github.com/lodestone/hyper-hacks/wiki[Wiki] for ideas
 * Install link:http://www.hammerspoon.org[Hammerspoon]
 * Install link:https://github.com/tekezo/Karabiner-Elements[Karabiner-Elements]
 * Put `hammerspoon/init.lua` in `~/.hammerspoon/init.lua`
-* Put `karabinier/karabiner.json` in `~/.config/karabinier/karabiner.json`
+* Put `karabiner/karabiner.json` in `~/.config/karabiner/karabiner.json`
 
 That's pretty much it.
 
