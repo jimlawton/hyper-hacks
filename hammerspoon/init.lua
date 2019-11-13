@@ -20,6 +20,13 @@ for i, app in ipairs(singleapps) do
   k:bind({}, app[1], function() launch(app[2]); k:exit(); end)
 end
 
+-- HYPER+D: Invoke Finder in Donloads folder.
+dfun = function()
+  hs.eventtap.keyStroke({'option', 'cmd'}, 'l')
+  k.triggered = true
+end
+k:bind({}, 'd', nil, dfun)
+
 -- HYPER+TAB: OPTION+TAB
 -- tabfun = function()
 --   hs.eventtap.keyStroke({'option'}, 'tab')
