@@ -9,18 +9,20 @@ end
 
 -- Single keybinding for app launch
 singleapps = {
-  {'o', 'Microsoft Outlook'},
+  {'b', 'Brave Browser'},
+  {'e', 'Sublime Text 4'},
   {'f', 'Finder'},
-  {'e', 'Sublime Text'},
-  {'s', 'Slack'},
-  {'c', 'Google Chrome'}
+  {'o', 'Obsidian'},
+  {'l', 'Microsoft Outlook'},
+  {'m', 'Sublime Merge'},
+  {'s', 'Slack'}
 }
 
 for i, app in ipairs(singleapps) do
   k:bind({}, app[1], function() launch(app[2]); k:exit(); end)
 end
 
--- HYPER+D: Invoke Finder in Donloads folder.
+-- HYPER+D: Invoke Finder in Downloads folder.
 dfun = function()
   hs.eventtap.keyStroke({'option', 'cmd'}, 'l')
   k.triggered = true
