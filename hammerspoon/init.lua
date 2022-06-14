@@ -15,7 +15,8 @@ singleapps = {
   {'o', 'Obsidian'},
   {'l', 'Microsoft Outlook'},
   {'m', 'Sublime Merge'},
-  {'s', 'Slack'}
+  {'s', 'Slack'},
+  {'y', 'YouTube Music Desktop App'}
 }
 
 for i, app in ipairs(singleapps) do
