@@ -10,7 +10,7 @@ end
 -- Single keybinding for app launch
 singleapps = {
   {'b', 'Brave Browser'},
-  {'e', 'Sublime Text'},
+  {'e', 'Visual Studio Code'},
   {'f', 'Finder'},
   {'o', 'Obsidian'},
   {'l', 'Microsoft Outlook'},
