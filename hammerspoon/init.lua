@@ -4,7 +4,7 @@ k = hs.hotkey.modal.new({}, "F17")
 
 launch = function(appname)
   hs.application.launchOrFocus(appname)
-  k.triggered = true
+  k.triggered = trueo
 end
 
 -- Single keybinding for app launch
@@ -46,11 +46,11 @@ end
 k:bind({}, 'h', nil, hfun)
 
 -- HYPER+T: Invoke iTerm2 visor.
-tfun = function()
-  hs.eventtap.keyStroke({'fn', 'cmd'}, 'f12')
-  k.triggered = true
-end
-k:bind({}, 't', nil, tfun)
+-- tfun = function()
+--   hs.eventtap.keyStroke({'fn', 'cmd'}, 'f12')
+--   k.triggered = true
+-- end
+-- k:bind({}, 't', nil, tfun)
 
 -- HYPER+L: Lock screen
 -- (This is now replaced by CMD-Ctrl-Q on High Sierra)
