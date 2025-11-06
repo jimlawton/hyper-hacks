@@ -28,10 +28,32 @@ for i, app in ipairs(singleapps) do
     end)
 end
 
+print('Defining other key bindings...')
+
+-- HYPER+t: Invoke iTerm2 visor.
+-- print('Defining hyper-t iTerm2 visor key binding...')
+-- local itermVisor = function()
+--   hs.eventtap.keyStroke({'fn', 'cmd'}, 'f12')
+--   k.triggered = true
+-- end
+-- k:bind({}, 't', nil, itermVisor)
+
+-- HYPER+t: Open new iTerm2 window with default profile.
+-- print('Defining hyper-t iTerm2 new window key binding...')
+-- local itermNewWindow = function()
+--     hs.osascript.applescript([[
+--         tell application "iTerm"
+--             create window with default profile
+--             activate
+--         end tell
+--     ]])
+-- end
+-- k.bind({}, 't', nil, itermNewWindow)
+
 -- HYPER+D: Invoke Finder in Downloads folder.
 print('Defining hyper-d key binding...')
 local finderDownloads = function()
-    hs.eventtap.keyStroke({ 'option', 'cmd' }, 'l')
+    hs.eventtap.keyStroke({ 'option', 'cmd' }, 'd')
     k.triggered = true
 end
 k:bind({}, 'd', nil, finderDownloads)
@@ -53,30 +75,12 @@ local hideAllWindows = function()
 end
 k:bind({}, 'h', nil, hideAllWindows)
 
--- HYPER+T: Invoke iTerm2 visor.
--- local itermVisor = function()
---   hs.eventtap.keyStroke({'fn', 'cmd'}, 'f12')
---   k.triggered = true
--- end
--- k:bind({}, 't', nil, itermVisor)
-
 -- HYPER+L: Lock screen (original replaced by cmd-ctrl-q from High Sierra onwards)
 local lockSession = function()
     hs.eventtap.keyStroke({ 'ctrl', 'cmd' }, 'q')
     k.triggered = true
 end
 k:bind({}, 'l', nil, lockSession)
-
--- HYPER+t: Open new iTerm2 window with default profile
-local itermNewWindow = function()
-    hs.osascript.applescript([[
-        tell application "iTerm"
-            create window with default profile
-            activate
-        end tell
-    ]])
-end
-k.bind({}, 't', nil, itermNewWindow)
 
 -- Enter Hyper Mode when F18 (Hyper/Capslock) is pressed
 print('Defining F18-pressed function...')
