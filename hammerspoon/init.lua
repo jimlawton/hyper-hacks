@@ -62,6 +62,17 @@ k:bind({}, 'h', nil, hfun)
 -- end
 -- k:bind({}, 'l', nil, lfun)
 
+-- HYPER+t: Open new iTerm2 window with default profile
+ifun = function()
+    hs.osascript.applescript([[
+        tell application "iTerm"
+            create window with default profile
+            activate
+        end tell
+    ]])
+end
+k.bind({}, "t", nil, ifun)
+
 -- Enter Hyper Mode when F18 (Hyper/Capslock) is pressed
 pressedF18 = function()
   k.triggered = false
