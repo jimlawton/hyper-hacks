@@ -52,18 +52,20 @@ k:bind({}, 't', nil, function()
 end)
 
 -- HYPER+T: Foreground all iTerm2 windows.
--- print('Defining hyper-T iTerm2 foreground key binding...')
--- k:bind({}, 'T', nil, function()
---     if hs.application.find("iTerm") then
---         hs.osascript.applescript([[
---         tell application "iTerm"
---             activate
---         end tell
---     ]])
---     else
---         hs.application.open("iTerm")
---     end
--- end)
+print('Defining hyper-T iTerm2 foreground key binding...')
+k:bind({ "shift" }, 't', nil, function()
+    if hs.application.find("iTerm") then
+        hs.osascript.applescript([[
+        tell application "iTerm"
+            repeat with aWindow in windows
+                activate aWindow
+            end repeat
+        end tell
+    ]])
+    else
+        hs.application.open("iTerm")
+    end
+end)
 
 -- HYPER+D: Invoke Finder in Downloads folder.
 print('Defining hyper-d key binding...')
