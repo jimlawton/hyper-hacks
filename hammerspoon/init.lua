@@ -53,7 +53,7 @@ end)
 
 -- HYPER+T: Foreground all iTerm2 windows.
 print('Defining hyper-T iTerm2 foreground key binding...')
-k:bind({ "shift" }, 't', nil, function()
+k:bind({ 'shift' }, 't', nil, function()
     if hs.application.find("iTerm") then
         hs.osascript.applescript([[
         tell application "iTerm"
@@ -95,6 +95,37 @@ k:bind({}, 'l', nil, function()
     hs.eventtap.keyStroke({ 'ctrl', 'cmd' }, 'q')
     k.triggered = true
 end)
+
+-- HYPER+H: Hide all windows.
+print('Defining hyper-h key binding...')
+k:bind({}, 'h', nil, function()
+    hs.eventtap.keyStroke({ 'option', 'cmd' }, 'h')
+    hs.eventtap.keyStroke({ 'option', 'cmd' }, 'm')
+    k.triggered = true
+end)
+
+-- HYPER+?: Show help dialog.
+print('Defining hyper-H key binding...')
+k:bind({ 'shift' }, 'h', nil, function()
+    hs.alert.show('Hyper Key Bindings:\n\n' ..
+        'Hyper+b: Brave Browser\n' ..
+        'Hyper+f: Finder\n' ..
+        'Hyper+g: Fork\n' ..
+        'Hyper+o: Obsidian\n' ..
+        'Hyper+m: Microsoft Outlook\n' ..
+        'Hyper+s: Slack\n' ..
+        'Hyper+y: YouTube Music\n' ..
+        'Hyper+z: Zed\n' ..
+        'Hyper+t: New iTerm2 window\n' ..
+        'Hyper+T: Foreground all iTerm2 windows\n' ..
+        'Hyper+d: Open Downloads folder in Finder\n' ..
+        'Hyper+h: Hide all windows\n' ..
+        'Hyper+l: Lock screen\n' ..
+        'Hyper+?: Show this help dialog')
+    k.triggered = true
+end)
+
+-- Key bindings finished.
 
 -- Enter Hyper Mode when F18 (Hyper/Capslock) is pressed
 print('Defining F18-pressed function...')
