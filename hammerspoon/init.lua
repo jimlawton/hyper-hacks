@@ -1,12 +1,16 @@
+print('Starting Hammerspoon configuration...')
+
 -- A global variable for the Hyper Mode
 local k = hs.hotkey.modal.new({}, "F17")
 
+print('Defining launch function...')
 local launch = function(appname)
     hs.application.launchOrFocus(appname)
     k.triggered = true
 end
 
 -- Single keybinding for app launch
+print('Defining app key bindings...')
 local singleapps = {
     { 'b', 'Brave Browser' },
     { 'f', 'Finder' },
@@ -18,12 +22,14 @@ local singleapps = {
     { 'z', 'Zed' }
 }
 for i, app in ipairs(singleapps) do
+    print('Binding hyper-' .. app[1] .. ' (' .. app[2] .. ') key binding...')
     k:bind({}, app[1], function()
         launch(app[2]); k:exit();
     end)
 end
 
 -- HYPER+D: Invoke Finder in Downloads folder.
+print('Defining hyper-d key binding...')
 local finderDownloads = function()
     hs.eventtap.keyStroke({ 'option', 'cmd' }, 'l')
     k.triggered = true
@@ -31,6 +37,7 @@ end
 k:bind({}, 'd', nil, finderDownloads)
 
 -- HYPER+TAB: OPTION+TAB
+-- print('Defining option-tab key binding...')
 -- local optionTab = function()
 --   hs.eventtap.keyStroke({'option'}, 'tab')
 --   k.triggered = true
@@ -38,6 +45,7 @@ k:bind({}, 'd', nil, finderDownloads)
 -- k:bind({}, 'tab', nil, optionTab)
 
 -- HYPER+H: Hide all windows.
+print('Defining hyper-h key binding...')
 local hideAllWindows = function()
     hs.eventtap.keyStroke({ 'option', 'cmd' }, 'h')
     hs.eventtap.keyStroke({ 'option', 'cmd' }, 'm')
@@ -71,6 +79,7 @@ end
 k.bind({}, 't', nil, itermNewWindow)
 
 -- Enter Hyper Mode when F18 (Hyper/Capslock) is pressed
+print('Defining F18-pressed function...')
 local pressedF18 = function()
     k.triggered = false
     k:enter()
@@ -78,6 +87,7 @@ end
 
 -- Leave Hyper Mode when F18 (Hyper/Capslock) is pressed,
 --   send ESCAPE if no other keys are pressed.
+print('Defining F18-released function...')
 local releasedF18 = function()
     k:exit()
     if not k.triggered then
@@ -86,9 +96,11 @@ local releasedF18 = function()
 end
 
 -- Bind the Hyper key
+print('Binding F18...')
 local f18 = hs.hotkey.bind({}, 'F18', pressedF18, releasedF18)
 
 -- Reload config when any lua file in config directory changes, to save having to manually reload.
+print('Setting up config watcher...')
 local function reloadConfig(files)
     doReload = false
     for _, file in pairs(files) do
