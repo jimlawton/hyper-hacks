@@ -107,8 +107,7 @@ end)
 -- HYPER+?: Show help dialog.
 print('Defining hyper-H key binding...')
 k:bind({ 'shift' }, 'h', nil, function()
-    hs.alert.show('Hyper Key Bindings:\n\n' ..
-        'Hyper+b: Brave Browser\n' ..
+    hs.dialog.textPrompt("Hyper Key Bindings", 'Hyper+b: Brave Browser\n' ..
         'Hyper+f: Finder\n' ..
         'Hyper+g: Fork\n' ..
         'Hyper+o: Obsidian\n' ..
@@ -121,7 +120,7 @@ k:bind({ 'shift' }, 'h', nil, function()
         'Hyper+d: Open Downloads folder in Finder\n' ..
         'Hyper+h: Hide all windows\n' ..
         'Hyper+l: Lock screen\n' ..
-        'Hyper+?: Show this help dialog')
+        'Hyper+H: Show this help dialog', "Press OK when finished", "OK")
     k.triggered = true
 end)
 
