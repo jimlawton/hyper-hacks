@@ -10,13 +10,13 @@ end
 -- Single keybinding for app launch
 singleapps = {
   {'b', 'Brave Browser'},
-  {'e', 'Visual Studio Code'},
   {'f', 'Finder'},
+  {'g', 'Fork'},
   {'o', 'Obsidian'},
-  {'l', 'Microsoft Outlook'},
-  {'m', 'Sublime Merge'},
+  {'m', 'Microsoft Outlook'},
   {'s', 'Slack'},
-  {'y', 'YouTube Music Desktop App'}
+  {'y', 'YouTube Music Desktop App'},
+  {'z', 'Zed'}
 }
 
 for i, app in ipairs(singleapps) do
