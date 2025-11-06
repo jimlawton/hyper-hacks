@@ -18,7 +18,7 @@ local singleapps = {
     { 'o', 'Obsidian' },
     { 'm', 'Microsoft Outlook' },
     { 's', 'Slack' },
-    { 'y', 'YouTube Music Desktop App' },
+    { 'y', 'YouTube Music' },
     { 'z', 'Zed' }
 }
 for i, app in ipairs(singleapps) do
