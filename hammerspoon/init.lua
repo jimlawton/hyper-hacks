@@ -39,18 +39,31 @@ print('Defining other key bindings...')
 
 -- HYPER+t: Open new iTerm2 window with default profile.
 print('Defining hyper-t iTerm2 new window key binding...')
--- k.bind({}, 't', nil, function()
---     hs.osascript.applescript([[
+k:bind({}, 't', nil, function()
+    if hs.application.find("iTerm") then
+        hs.osascript.applescript([[
+        tell application "iTerm"
+            create window with default profile
+        end tell
+    ]])
+    else
+        hs.application.open("iTerm")
+    end
+end)
+
+-- HYPER+T: Foreground all iTerm2 windows.
+-- print('Defining hyper-T iTerm2 foreground key binding...')
+-- k:bind({}, 'T', nil, function()
+--     if hs.application.find("iTerm") then
+--         hs.osascript.applescript([[
 --         tell application "iTerm"
---             create window with default profile
 --             activate
 --         end tell
 --     ]])
+--     else
+--         hs.application.open("iTerm")
+--     end
 -- end)
-k.bind({}, 't', nil, function()
-    hs.application.open("iTerm")
-    k.triggered = true
-end)
 
 -- HYPER+D: Invoke Finder in Downloads folder.
 print('Defining hyper-d key binding...')
