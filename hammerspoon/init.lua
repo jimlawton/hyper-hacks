@@ -32,23 +32,25 @@ print('Defining other key bindings...')
 
 -- HYPER+t: Invoke iTerm2 visor.
 -- print('Defining hyper-t iTerm2 visor key binding...')
--- local itermVisor = function()
---   hs.eventtap.keyStroke({'fn', 'cmd'}, 'f12')
---   k.triggered = true
--- end
--- k:bind({}, 't', nil, itermVisor)
+-- k:bind({}, 't', nil, function()
+--     hs.eventtap.keyStroke({ 'fn', 'cmd' }, 'f12')
+--     k.triggered = true
+-- end)
 
 -- HYPER+t: Open new iTerm2 window with default profile.
--- print('Defining hyper-t iTerm2 new window key binding...')
--- local itermNewWindow = function()
+print('Defining hyper-t iTerm2 new window key binding...')
+-- k.bind({}, 't', nil, function()
 --     hs.osascript.applescript([[
 --         tell application "iTerm"
 --             create window with default profile
 --             activate
 --         end tell
 --     ]])
--- end
--- k.bind({}, 't', nil, itermNewWindow)
+-- end)
+k.bind({}, 't', nil, function()
+    hs.application.open("iTerm")
+    k.triggered = true
+end)
 
 -- HYPER+D: Invoke Finder in Downloads folder.
 print('Defining hyper-d key binding...')
@@ -73,6 +75,7 @@ k:bind({}, 'h', nil, function()
 end)
 
 -- HYPER+L: Lock screen (original replaced by cmd-ctrl-q from High Sierra onwards)
+print('Defining hyper-l key binding...')
 k:bind({}, 'l', nil, function()
     hs.eventtap.keyStroke({ 'ctrl', 'cmd' }, 'q')
     k.triggered = true
