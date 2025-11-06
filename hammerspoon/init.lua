@@ -52,35 +52,31 @@ print('Defining other key bindings...')
 
 -- HYPER+D: Invoke Finder in Downloads folder.
 print('Defining hyper-d key binding...')
-local finderDownloads = function()
+k:bind({}, 'd', nil, function()
     hs.eventtap.keyStroke({ 'option', 'cmd' }, 'd')
     k.triggered = true
-end
-k:bind({}, 'd', nil, finderDownloads)
+end)
 
 -- HYPER+TAB: OPTION+TAB
 -- print('Defining option-tab key binding...')
--- local optionTab = function()
---   hs.eventtap.keyStroke({'option'}, 'tab')
---   k.triggered = true
--- end
--- k:bind({}, 'tab', nil, optionTab)
+-- k:bind({}, 'tab', nil, function()
+--     hs.eventtap.keyStroke({ 'option' }, 'tab')
+--     k.triggered = true
+-- end)
 
 -- HYPER+H: Hide all windows.
 print('Defining hyper-h key binding...')
-local hideAllWindows = function()
+k:bind({}, 'h', nil, function()
     hs.eventtap.keyStroke({ 'option', 'cmd' }, 'h')
     hs.eventtap.keyStroke({ 'option', 'cmd' }, 'm')
     k.triggered = true
-end
-k:bind({}, 'h', nil, hideAllWindows)
+end)
 
 -- HYPER+L: Lock screen (original replaced by cmd-ctrl-q from High Sierra onwards)
-local lockSession = function()
+k:bind({}, 'l', nil, function()
     hs.eventtap.keyStroke({ 'ctrl', 'cmd' }, 'q')
     k.triggered = true
-end
-k:bind({}, 'l', nil, lockSession)
+end)
 
 -- Enter Hyper Mode when F18 (Hyper/Capslock) is pressed
 print('Defining F18-pressed function...')
@@ -89,8 +85,8 @@ local pressedF18 = function()
     k:enter()
 end
 
--- Leave Hyper Mode when F18 (Hyper/Capslock) is pressed,
---   send ESCAPE if no other keys are pressed.
+-- Leave Hyper Mode when F18 (Hyper/Capslock) is pressed.
+-- Send ESCAPE if no other keys are pressed.
 print('Defining F18-released function...')
 local releasedF18 = function()
     k:exit()
@@ -101,12 +97,12 @@ end
 
 -- Bind the Hyper key
 print('Binding F18...')
-local f18 = hs.hotkey.bind({}, 'F18', pressedF18, releasedF18)
+hs.hotkey.bind({}, 'F18', pressedF18, releasedF18)
 
 -- Reload config when any lua file in config directory changes, to save having to manually reload.
 print('Setting up config watcher...')
 local function reloadConfig(files)
-    doReload = false
+    local doReload = false
     for _, file in pairs(files) do
         if file:sub(-4) == '.lua' then
             doReload = true
@@ -117,7 +113,7 @@ local function reloadConfig(files)
     end
 end
 local myWatcher =
-    hs.pathwatcher.new(os.getenv('HOME') .. '/.local/share/chezmoi/hyper-hacks/.hammerspoon/init.lua', reloadConfig)
+    hs.pathwatcher.new(os.getenv('HOME') .. '/.local/share/chezmoi/hyper-hacks/.hammerspoon/', reloadConfig)
     :start()
 
 hs.alert.show('Hammerspoon config reloaded')
