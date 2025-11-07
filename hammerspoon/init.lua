@@ -65,6 +65,7 @@ k:bind({ 'shift' }, 't', nil, function()
     else
         hs.application.open("iTerm")
     end
+    k.triggered = true
 end)
 
 -- HYPER+D: Invoke Finder in Downloads folder.
