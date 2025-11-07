@@ -49,6 +49,7 @@ k:bind({}, 't', nil, function()
     else
         hs.application.open("iTerm")
     end
+    k.triggered = true
 end)
 
 -- HYPER+T: Foreground all iTerm2 windows.
